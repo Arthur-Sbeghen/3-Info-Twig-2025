@@ -1,4 +1,16 @@
 {% extends "_base.html" %}
 {% block conteudo %}
 Página de Compras
+
+<h3>Adicionar item</h3>
+<form action="compras_adc.php" method="post">
+    <input type="text" name="item" placeholder="Nome:" required>
+    <button type="submit">Adicionar</button>
+</form>
+<h3>Minha lista de compras</h3>
+<ul>
+    {% for compra in compras %}
+        <li style="width: 8em;display: flex;flex-direction: row;justify-content: space-between;"><div>{{compra.item}}</div><div><a href="compras_del.php?id={{compra.id}}"><i class="fa-solid fa-trash"></i></a><a href="compras_edt.php?id={{compra.id}}&name={{compra.item}}"><i class="fa-solid fa-pen"></i></a></div></li>
+    {%endfor%}
+</ul>
 {% endblock %}
