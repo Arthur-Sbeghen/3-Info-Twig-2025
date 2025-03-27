@@ -10,3 +10,6 @@ echo 'Idade de alguém: ' . Carbon::createFromDate(2007, 12, 3)->age . '<br>';
 echo (Carbon::now()->isWeekend() ? 'Festa!' : 'Aula') . '<br>';
 $nascimento = Carbon::createFromDate(2007,12,3);
 echo 'Diferença de Data: ' . Carbon::now()->diff($nascimento);
+$data_random = '2023-04-05';
+$data = Carbon::parse($data_random);
+echo '<br>'.$data;

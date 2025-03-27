@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+{% block conteudo %}
+Página de Edição
+
+<h3>Editar compromisso "{{ nome }}"</h3>
+<form action="compras_edt.php" method="post">
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="text" name="item" placeholder="Novo nome:" required>
+    <button type="submit">Adicionar</button>
+</form>
+{% endblock %}
