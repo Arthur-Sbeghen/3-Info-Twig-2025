@@ -1,5 +1,6 @@
 <?php
 require 'inc/banco.php';
+require 'twig_carregar.php';
 
 $nome = $_POST['nome'] ?? null;
 $data = $_POST['data'] ?? null;
@@ -12,7 +13,7 @@ if ($nome && $id && $data) {
     $query = $pdo->prepare("UPDATE compromissos SET nome = :nome, data = :data WHERE id = :id");
     $binds = [':nome' => $nome, ':id' => $id, ':data' => $data];
     $query->execute($binds);
-    header("location:compras.php");
+    header("location:compromissos.php");
 } else if ($nomeG && $idG && $dataG) {
     echo $twig->render("comp_edit.html", ['nome'=> $nomeG,'id' => $idG, 'data' => $dataG]);
 }

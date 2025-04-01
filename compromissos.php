@@ -4,11 +4,11 @@ require 'inc/banco.php';
 
 use Carbon\Carbon;
 
-$query = 'SELECT * FROM compromissos c';
+$query = 'SELECT * FROM compromissos ';
 
-$id = $_GET['id'] ?? null;
+$id = $_GET['ord'] ?? null;
 if($id){
-    $query .= 'ORDER BY';
+    $query .= 'ORDER BY ';
     switch($id) {
         case 1:
             $query .= 'data desc';
@@ -17,10 +17,10 @@ if($id){
             $query .= 'data asc';
             break;
         case 3:
-            $query .= 'nome desc';
+            $query .= 'nome asc';
             break;
         case 4:
-            $query .= 'nome asc';
+            $query .= 'nome desc';
             break;
         default:
             break;

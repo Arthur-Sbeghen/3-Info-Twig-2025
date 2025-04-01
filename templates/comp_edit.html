@@ -2,10 +2,11 @@
 {% block conteudo %}
 Página de Edição
 
-<h3>Editar compromisso "{{ nome }}"</h3>
-<form action="compras_edt.php" method="post">
+<h3>Editar compromisso "{{ nome }} - {{ data }}"</h3>
+<form action="comp_edt.php" method="post">
     <input type="hidden" name="id" value="{{id}}">
-    <input type="text" name="item" placeholder="Novo nome:" required>
+    <input type="text" name="nome" placeholder="Novo nome:" required>
+    <input type="date" name="data" placeholder="Nova data:" required>
     <button type="submit">Adicionar</button>
 </form>
 {% endblock %}

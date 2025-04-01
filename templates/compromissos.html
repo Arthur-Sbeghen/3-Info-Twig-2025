@@ -6,33 +6,33 @@ Página de Compromissos
         <h4>Adicionar Compromissos</h4>
         <form action="comp_adc.php" method="post">
             <input type="text" name="nome" required placeholder="Nome do Compromisso">
-            <input type="date" required name="dia" placeholder="Data">
+            <input type="date" required name="data" placeholder="Data">
             <button type="submit">Adicionar</button>
         </form>
     </div>
     <div>
-        <a href="listar.php?ord=1">Ordenar por Data Distante</a>
-        <a href="listar.php?ord=2">Ordenar por Data Próxima</a>
-        <a href="listar.php?ord=3">Ascender por Nome</a>
-        <a href="listar.php?ord=4">Desascender por Nome</a>
+        <div>
+            <a href="compromissos.php?ord=1">Ordenar por Data Distante</a>
+            <a href="compromissos.php?ord=2">Ordenar por Data Próxima</a>
+        </div>
+        <div>
+            <a href="compromissos.php?ord=3">Ordenar por Nome (Ordem Alfabética)</a>
+            <a href="compromissos.php?ord=4">Ordenar por Nome (Ordem Alfabética ao Contrário)</a>    
+        </div>
     </div>
     <div class="listagem">
         <ul>
             {% for c in compromissos %}
                 <li style="list-style-type: none;">
                     <div>
-                        <h5>{c.titulo}</h5>
-                        <p>{c.data}</p>
-                        {%if c.isWeekend %}
+                        <h3>{{ c.nome }} - <a href="comp_del.php?id={{c.id}}"><i class="fa-solid fa-trash"></i></a><a href="comp_edt.php?id={{c.id}}&nome={{ c.nome }}&data={{c.data}}"><i class="fa-solid fa-pen"></i></a></h3>
+                        <p>{{ c.data }}</p>
+                        {% if c.isWeekend %}
                             <p>é de final de semana :/</p>
-                        {%endif%}
+                        {% endif %}
                     </div>
                 </li>
-            {%endfor%}
+            {% endfor %}
         </ul>
-    </div>
-    <div>
-    <p>Horário de Hoje: {{today}}</p>
-    <p>Horário de Amanhã: {{tomorrow}}</p>
     </div>
 {% endblock %}
