@@ -1,4 +1,8 @@
 <?php
-require_once("twig_carregar.php");
+require_once 'twig_carregar.php';
 
-echo $twig->render('index.html', ['fruta' => 'abacaxi']);
+if ($_SESSION['usuario']) {
+    echo $twig->render('index.html', ['fruta' => 'abacaxi']);
+} else {
+    header('location:login.php');
+}
