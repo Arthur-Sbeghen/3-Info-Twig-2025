@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+{% block conteudo %}
+Página de Usuários
+
+<h3>Lista de Usuários</h3>
+<ul>
+    {% for user in users %}
+        <li style="width: 8em;display: flex;flex-direction: row;justify-content: space-between;"><div>{{user.login}}</div><div><a href="user_del.php?id={{user.id}}"><i class="fa-solid fa-trash"></i></a><a href="user_edt.php?id={{user.id}}&login={{user.login}}"><i class="fa-solid fa-pen"></i></a></div></li>
+    {%endfor%}
+</ul>
+{% endblock %}

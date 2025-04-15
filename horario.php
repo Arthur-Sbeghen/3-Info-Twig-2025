@@ -2,7 +2,7 @@
 require 'twig_carregar.php';
 use Carbon\Carbon;
 
-if(!$_SESSION["usuario"]) header("location:login.php");
+if(!isset($_SESSION["usuario"])) header("location:login.php");
 
 echo $twig->render("horario.html", [
     'titulo'=>'Horario',

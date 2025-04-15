@@ -2,7 +2,7 @@
 require 'inc/banco.php';
 require 'twig_carregar.php';
 
-if(!$_SESSION["usuario"]) header("location:login.php");
+if(!isset($_SESSION["usuario"])) header("location:login.php");
 
 $nome = $_POST['nome'] ?? null;
 $data = $_POST['data'] ?? null;

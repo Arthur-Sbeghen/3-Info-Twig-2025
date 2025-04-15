@@ -5,17 +5,22 @@ require 'inc/banco.php';
 $login = $_POST["login"] ?? null;
 $senha = $_POST["senha"] ?? null;
 
+$usuario = $_POST["user"] ?? null;
+$pass = $_POST["pass"] ?? null;
+
 if ($login && $senha) {
     $query = $pdo->prepare("SELECT * FROM usuarios WHERE login = :login");
     $query->execute([':login' => $login]);
-    $user = $query->fetch();
-    if($usuario && password_verify($senha, $usuario['senha']))
-    $pass = password_verify($result['senha'], password_hash($senha, PASSWORD_BCRYPT));  
-    if ($pass) {
-        session_start();
-        $_SESSION['user'] = $result['login'];
+    $dados = $query->fetch();
+    if($usuario && password_verify($senha, $dados['senha'])) {
+        $_SESSION['usuario'] = $dados['login'];
         header("location:index.php");
     }
+} else if ($usuario && $pass) {
+    $query = $pdo->prepare("INSERT INTO usuarios (login, senha) VALUES (:login, :senha)");
+    $query->execute([':login' => $usuario, ':senha' => password_hash($pass, PASSWORD_BCRYPT)]);
+    $_SESSION['usuario'] = $usuario;
+    header("location:index.php");
 }
 
 echo $twig->render('login.html', []);
