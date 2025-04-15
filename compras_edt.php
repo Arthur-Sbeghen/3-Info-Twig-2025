@@ -2,6 +2,8 @@
 require_once 'twig_carregar.php';
 require 'inc/banco.php';
 
+if(!$_SESSION["usuario"]) header("location:login.php");
+
 $nome = $_GET['name'] ?? null; 
 $id = $_GET['id'] ?? null;
 $pNome = $_POST['item'] ?? null;

@@ -4,6 +4,8 @@ require 'inc/banco.php';
 
 use Carbon\Carbon;
 
+if(!$_SESSION["usuario"]) header("location:login.php");
+
 $query = 'SELECT * FROM compromissos ';
 
 $id = $_GET['ord'] ?? null;
