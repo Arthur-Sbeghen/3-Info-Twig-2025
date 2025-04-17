@@ -8,7 +8,7 @@ if($login && $senha) {
     $query = $pdo->prepare("INSERT INTO usuarios (login, senha) VALUES (:login, :senha)"); 
     $binds = [
         ':login'=>$login,
-        ':senha'=>password_hash($senha, PASSWORD_BCRYPT)
+        ':senha'=>password_hash($senha, PASSWORD_DEFAULT)
     ];
     $query->execute($binds);
 }

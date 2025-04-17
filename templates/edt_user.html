@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% block conteudo %}
+Página de Edição de Usuários
+
+<h3>Editar usuário "{{ login }}"</h3>
+<form action="user_edt.php" method="post">
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="text" name="login" placeholder="Novo login:" required>
+    <br>
+    <input type="password" name="senha" placeholder="Nova senha:">
+    <p>(Deixe a senha em Branco se não quiser mudá-la)</p>
+    <button type="submit">Adicionar</button>
+</form>
+{% endblock %}
