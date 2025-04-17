@@ -38,5 +38,6 @@ foreach ($data as &$d) {
 
 echo $twig->render("compromissos.html", [
     'titulo'=>'Compromissos',
-    'compromissos' => $data
+    'compromissos' => $data,
+    'user' => $_SESSION["usuario"]
 ]);

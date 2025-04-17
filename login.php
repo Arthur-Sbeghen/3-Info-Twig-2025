@@ -15,7 +15,7 @@ if ($login && $senha) {
     $query = $pdo->prepare("SELECT * FROM usuarios WHERE login = :login");
     $query->execute([':login' => $login]);
     $dados = $query->fetch();
-    if($dados['login'] && password_verify($senha, $dados['senha'])) {
+    if($dados && password_verify($senha, $dados['senha'])) {
         $_SESSION['usuario'] = $dados['login'];
         header("location:index.php");
     }

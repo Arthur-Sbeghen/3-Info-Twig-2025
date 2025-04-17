@@ -9,5 +9,6 @@ $comp = $dados->fetchAll(PDO::FETCH_ASSOC);
 
 echo $twig->render("compras.html", [
     'titulo'=>'Compras',
-    'compras' => $comp
+    'compras' => $comp,
+    'user' => $_SESSION["usuario"]
 ]);

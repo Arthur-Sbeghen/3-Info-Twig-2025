@@ -9,5 +9,6 @@ $users = $dados->fetchAll(PDO::FETCH_ASSOC);
 
 echo $twig->render("usuarios.html", [
     'titulo'=>'Usuários',
-    'users' => $users
+    'users' => $users,
+    'user' => $_SESSION["usuario"]
 ]);

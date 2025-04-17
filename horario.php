@@ -7,5 +7,6 @@ if(!isset($_SESSION["usuario"])) header("location:login.php");
 echo $twig->render("horario.html", [
     'titulo'=>'Horario',
     'today'=>Carbon::now(),
-    'tomorrow'=>Carbon::now()->addDay()
+    'tomorrow'=>Carbon::now()->addDay(),
+    'user' => $_SESSION["usuario"]
 ]);

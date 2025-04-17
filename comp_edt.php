@@ -17,5 +17,5 @@ if ($nome && $id && $data) {
     $query->execute($binds);
     header("location:compromissos.php");
 } else if ($nomeG && $idG && $dataG) {
-    echo $twig->render("comp_edit.html", ['nome'=> $nomeG,'id' => $idG, 'data' => $dataG]);
+    echo $twig->render("comp_edit.html", ['nome'=> $nomeG,'id' => $idG, 'data' => $dataG, 'user' => $_SESSION["usuario"]]);
 }
